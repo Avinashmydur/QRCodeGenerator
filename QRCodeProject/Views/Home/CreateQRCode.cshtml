@@ -1,0 +1,21 @@
+﻿@model QRCodeProject.Models.QRCodeModel
+
+<h2>Create QR Code</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.QRCodeText)
+        @Html.TextBoxFor(m => m.QRCodeText)
+    </div>
+    <div>
+        <input type="submit" value="Generate QR Code" />
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.QRImageUrl))
+{
+    <div>
+        <img src="@Model.QRImageUrl" alt="QR Code" />
+    </div>
+}
